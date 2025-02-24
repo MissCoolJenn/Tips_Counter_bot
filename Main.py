@@ -45,7 +45,7 @@ async def message_handler(message: types.Message):
     pattern = r"^\+\d+$"
     if re.search(pattern, message.text):
         try:
-            await DB_conn.Save_info(user_name, date_today, message.text[1:])
+            await DB_conn.Save_info(user_name, date_today, int(message.text[1:]))
             is_saved = True
         except:
             is_saved = False
